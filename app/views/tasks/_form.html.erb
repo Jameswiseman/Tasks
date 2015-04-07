@@ -1,17 +1,40 @@
-<%= simple_form_for(@task) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.association :user %>
-    <%= f.input :task_name %>
-    <%= f.input :task_description %>
-    <%= f.input :task_completion_date %>
-    <%= f.input :task_completion_time %>
-    <%= f.input :status %>
-    <%= f.association :clients %>
+<%= form_for @tasks, :html => { :class => 'form-horizontal form-model' } do |f| %>
+  <div class="form-group">
+    <%= f.label :task_name, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_field :task_name, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :task_description, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.text_area :task_description, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :task_completion_date, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.date_select :task_completion_date, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :task_completion_time, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.time_select :task_completion_time, :class => 'text-field form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :status, :class => 'control-label col-md-2' %>
+    <div class="col-md-10">
+      <%= f.check_box :status, :class => 'text-field form-control' %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  tasks_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 <% end %>
