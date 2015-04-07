@@ -1,4 +1,5 @@
 ActiveAdmin.register Tasks do
+  permit_params :task_name, :task_description, :task_completion_date, :task_completion_time, :status
 
 
   # See permitted parameters documentation:
