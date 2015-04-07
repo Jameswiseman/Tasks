@@ -1,0 +1,17 @@
+<%= simple_form_for(@task) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.input :task_name %>
+    <%= f.input :task_description %>
+    <%= f.input :task_completion_date %>
+    <%= f.input :task_completion_time %>
+    <%= f.input :status %>
+    <%= f.association :clients %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
